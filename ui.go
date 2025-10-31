@@ -79,6 +79,7 @@ func New(url, dir string, width, height int, customArgs ...string) (UI, error) {
 	args = append(args, customArgs...)
 	args = append(args, "--remote-debugging-port=0")
 	args = append(args, "--remote-allow-origins=*")
+	args = append(args, "--disable-blink-features=AutomationControlled")
 
 	chrome, err := newChromeWithArgs(ChromeExecutable(), args...)
 	done := make(chan struct{})
